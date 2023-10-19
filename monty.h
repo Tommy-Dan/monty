@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -30,5 +30,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+//*Stack operations*/
+stack_t *create_node(int n);
+void free_nodes(struct_t *h);
+void print_stack(stack_t **head, unsigned int buff);
+void add_to_stack(stack_t **head, int m );
+void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln    );
 
 #endif /*MAIN_H*/
