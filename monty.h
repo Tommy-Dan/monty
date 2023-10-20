@@ -50,41 +50,38 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln    
 
 /*file operations*/
 void open_file(char *file_name);
-int parse_line(char *buffer, int line_number, int format);
+int line_sept(char *buff, int line_number, int format);
 void read_file(FILE *);
-int len_chars(FILE *);
-void find_func(char *, char *, int, int);
+void func_called(op_func func, char *opc, char *value, int line_number, int format);
+void find_function(char *, char *, int, int);
 
 /*Stack operations*/
 stack_t *create_node(int n);
-void free_nodes(void);
-void print_stack(stack_t **, unsigned int);
-void add_to_stack(stack_t **, unsigned int);
-void add_to_queue(stack_t **, unsigned int);
-
-void call_fun(op_func, char *, char *, int, int);
+void free_stack(stack_t *head);
+void print_stack(stack_t **head, unsigned int buff);
+void add_to_stack(stack_t **head, int m);
+void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln);
 
 void print_top(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-void swap_nodes(stack_t **, unsigned int);
+void swap_nodes(stack_t **stack, unsigned int line_number);
 
 /*Math operations with nodes*/
-void add_nodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
+void stack_subtract(stack_t **stack, unsigned int line_number);
+void stack_div(stack_t **stack, unsigned int line_number);
+void stack_multiply(stack_t **stack, unsigned int line_number);
+void stack_add(stack_t **stack, unsigned int line_number);
 
 /*String operations*/
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
-void rotl(stack_t **, unsigned int);
+void print_char(stack_t **stack, unsigned int line_number);
+void printStr(stack_t **stack, __attribute__((unused))unsigned int line_n);
+void r_fstNodr(stack_t **stack, __attribute__((unused))unsigned int line_n);
+void r_lstNode(stack_t **stack, __attribute__((unused))unsigned int line_n
 
 /*Error hanlding*/
 void err(int error_code, ...);
 void more_err(int error_code, ...);
 void string_err(int error_code, ...);
-void rotr(stack_t **, unsigned int);
 
 #endif
