@@ -70,14 +70,14 @@ void stack_add(stack_t **stack, unsigned int line_number)
  */
 void stack_subtract(stack_t **stack, unsigned int line_number)
 {
-	int a;
+	int difference;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		more_err(8, line_number, "sub");
 
 	(*stack) = (*stack)->next;
-	a = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = a;
+	difference = (*stack)->n - (*stack)->prev->n;
+	(*stack)->n = difference;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
@@ -89,16 +89,17 @@ void stack_subtract(stack_t **stack, unsigned int line_number)
  */
 void stack_div(stack_t **stack, unsigned int line_number)
 {
-	int m;
+	int quotient;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		more_err(8, line_number, "div");
 
 	if ((*stack)->n == 0)
 		more_err(9, line_number);
+
 	(*stack) = (*stack)->next;
-	m = (*stack)->n / (*stack)->prev->n;
-	(*stack)->n = m;
+	quotient = (*stack)->n / (*stack)->prev->n;
+	(*stack)->n = quotient;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
