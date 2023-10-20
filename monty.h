@@ -58,8 +58,9 @@ void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln);
 
 void print_top(stack_t **, unsigned int);
 void pop_top(stack_t **, unsigned int);
-void nop(stack_t **, unsigned int);
 void swap_nodes(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void stack_mod(stack_t **stack, unsigned int line_number);
 
 /*Math operations with nodes*/
 void stack_subtract(stack_t **stack, unsigned int line_number);
@@ -73,9 +74,5 @@ void printStr(stack_t **stack, __attribute__((unused))unsigned int line_n);
 void r_fstNodr(stack_t **stack, __attribute__((unused))unsigned int line_n);
 void r_lstNode(stack_t **stack, __attribute__((unused))unsigned int line_n
 
-/*Error hanlding*/
-void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);
 
 #endif
