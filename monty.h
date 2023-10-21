@@ -58,7 +58,14 @@ typedef struct monty_t
 extern monty_t m;
 
 
+/*===string operations===*/
 void printChar(stack_t **head, unsigned int line_n);
 void print_topchar(stack_t **head, unsigned int line_n);
 void print_string(stack_t **head, unsigned int line_n);
 void print_sktop(stack_t **head, unsigned int line_n);
+
+/*===stack operations===*/
+void f_pint(stack_t **head, unsigned int line_n);
+void f_pop(stack_t **head, unsigned in line_n);
+void f_push(stack_t **head, unsigned int line_n);
+void f_pall(stack_t **head, unsigned int line_n);
