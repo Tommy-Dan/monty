@@ -69,3 +69,9 @@ void f_pint(stack_t **head, unsigned int line_n);
 void f_pop(stack_t **head, unsigned in line_n);
 void f_push(stack_t **head, unsigned int line_n);
 void f_pall(stack_t **head, unsigned int line_n);
+
+/*===stack manupulations===*/
+void top_rotate(stack_t **head, __attribute__((unused)) unsigned int line_n);
+void bottom_rotate(stack_t **head, __attribute__((unused)) unsigned int line_n);
+void f_nop(stack_t **head, unsigned int line_n);
+void free_stack(stack_t *head);
