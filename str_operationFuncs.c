@@ -62,3 +62,39 @@ void print_topchar(stack_t **head, unsigned int line_n)
 	}
 	printf("%c\n", h->n);
 }
+
+/**
+ * print_string - print the string starting at the top of stack
+ * @head: the head of the stack
+ * @line_n: the line number
+ * Return: Return nothing
+ */
+void print_string(stack_t **head, unsigned int line_n)
+{
+	stack_t *h;
+	(void)line_n;
+
+	h = *head;
+	while (h)
+	{
+		if (h->n > 127 || h->n <= 0)
+			break;
+		printf("%c", h->n);
+		h = h->next;
+	}
+	printf("\n");
+}
+
+
+/**
+ * print_sktop - print the top stack
+ * @head: the head of the stack
+ * @line_n: the line number in the function
+ * Return: Return nothing
+ */
+void print_sktop(stack_t **head, unsigned int line_n)
+{
+	(void)head;
+	(void)line_n;
+	m.stackMode = 0;
+}

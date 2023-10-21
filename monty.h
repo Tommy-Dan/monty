@@ -59,4 +59,6 @@ extern monty_t m;
 
 
 void printChar(stack_t **head, unsigned int line_n);
-
+void print_topchar(stack_t **head, unsigned int line_n);
+void print_string(stack_t **head, unsigned int line_n);
+void print_sktop(stack_t **head, unsigned int line_n);
