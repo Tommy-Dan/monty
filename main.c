@@ -1,5 +1,7 @@
 #include "monty.h"
 
+
+monty_t m = {NULL, NULL, NULL, 0};
 /**
  * main - entry point of monty code interpreter
  * @argc: number of arguments

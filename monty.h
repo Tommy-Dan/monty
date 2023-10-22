@@ -1,13 +1,14 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
 #include <fcntl.h>
+#include <stdarg.h>
 #include <sys/types.h>
 
 /**
@@ -58,6 +59,9 @@ typedef struct monty_t
 extern monty_t m;
 
 
+ssize_t getstdin(char **lineptr, int file);
+char *clean_line(char *content);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 /*===string operations===*/
 void printChar(stack_t **head, unsigned int line_n);
 void print_topchar(stack_t **head, unsigned int line_n);
@@ -66,7 +70,7 @@ void print_sktop(stack_t **head, unsigned int line_n);
 
 /*===stack operations===*/
 void f_pint(stack_t **head, unsigned int line_n);
-void f_pop(stack_t **head, unsigned in line_n);
+void f_pop(stack_t **head, unsigned int line_n);
 void f_push(stack_t **head, unsigned int line_n);
 void f_pall(stack_t **head, unsigned int line_n);
 void f_stack(stack_t **head, unsigned int line_n);
@@ -90,3 +94,6 @@ void f_queue(stack_t **head, unsigned int line_n);
 void add_queue(stack_t **head, int n);
 void f_swap(stack_t **head, unsigned int line_n);
 int executable(char *content, stack_t **stack, unsigned int line_n, FILE *file);
+
+
+#endif

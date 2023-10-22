@@ -11,7 +11,6 @@ void printChar(stack_t **head, unsigned int line_n)
 	stack_t *h;
 
 	h = *head;
-
 	if (!h)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
@@ -20,7 +19,7 @@ void printChar(stack_t **head, unsigned int line_n)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	if (h->n 127 || h->n < 0)
+	if (h->n > 127 || h->n < 0)
 	{
 		fprintf(stderr, "L%d:  can't pint, stack value out of range\n", line_n);
 		fclose(m.file);

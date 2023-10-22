@@ -27,7 +27,7 @@ void f_pint(stack_t **head, unsigned int line_n)
  * @line_n: the line number of function
  * Return: Return nothing
  */
-void f_pop(stack_t **head, unsigned in line_n)
+void f_pop(stack_t **head, unsigned int line_n)
 {
 	stack_t *h;
 

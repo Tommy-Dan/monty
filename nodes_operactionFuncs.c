@@ -94,7 +94,7 @@ void f_swap(stack_t **head, unsigned int line_n)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: Can't swap, stack too short\n", length);
+		fprintf(stderr, "L%d: Can't swap, stack too short\n", line_n);
 		fclose(m.file);
 		free(m.content);
 		free_stack(*head);
@@ -103,7 +103,7 @@ void f_swap(stack_t **head, unsigned int line_n)
 	h = *head;
 	temp = h->n;
 	h->n = h->next->n;
-	h->next->n = line_n;
+	h->next->n = temp;
 }
 
 /**
@@ -123,30 +123,30 @@ int executable(char *content, stack_t **stack, unsigned int line_n, FILE *file)
 		{"sub", f_sub}, {"div", f_div},
 		{"mul", f_mul}, {"mod", f_mod},
 		{"swap", f_swap}, {"pchar", printChar},
-		{"pstr", printString}, {"queue", f_queue},
+		{"pstr", print_string}, {"queue", f_queue},
 		{"stack", f_stack}, {"rotl", top_rotate},
 		{"rotr", bottom_rotate},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
-	char *opr;
+	char *optr;
 
-	opr = strtok(content, " \n\t");
-	if (opr && opt[0] == '#')
+	optr = strtok(content, " \n\t");
+	if (optr && optr[0] == '#')
 		return (0);
 	m.arg = strtok(NULL, " \n\t");
-	while (open_stack[i].opcode && opr)
+	while (open_stack[i].opcode && optr)
 	{
-		if (strcmp(opr, open_stack[i].opcode) == 0)
+		if (strcmp(optr, open_stack[i].opcode) == 0)
 		{
 			open_stack[i].f(stack, line_n);
 			return (0);
 		}
 		i++;
 	}
-	if (opr && open_stack[i].opcode == NULL)
+	if (optr && open_stack[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opr);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, optr);
 		fclose(file);
 		free(content);
 		free_stack(*stack);
