@@ -75,3 +75,9 @@ void top_rotate(stack_t **head, __attribute__((unused)) unsigned int line_n);
 void bottom_rotate(stack_t **head, __attribute__((unused)) unsigned int line_n);
 void f_nop(stack_t **head, unsigned int line_n);
 void free_stack(stack_t *head);
+
+/*===maths operations===*/
+void f_add(stack_t **head, unsigned int line_n);
+void f_div(stack_t **head, unsigned int line_n);
+void f_mult(stack_t **head, unsigned int line_n);
+void f_sub(stack_t **head, unsigned int line_n);
