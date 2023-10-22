@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	{
 		content = NULL;
 		read_line = getline(&content, &size, file);
-		m.content = content = content;
+		m.content = content;
 		line_n++;
 		if (read_line > 0)
 			executable(content, &stack, line_n, file);

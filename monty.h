@@ -55,7 +55,7 @@ typedef struct monty_t
 	FILE *file;
 	char *content;
 	int stackMode;
-}  monty_t;
+} monty_t;
 extern monty_t m;
 
 
