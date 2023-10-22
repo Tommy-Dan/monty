@@ -109,3 +109,16 @@ void f_pall(stack_t **head, unsigned int line_n)
 		h = h->next;
 	}
 }
+
+/**
+ * f_stack - print the top stack
+ * @head: the head stack
+ * @line_n: the line number
+ * Return: Return nothing
+ */
+void f_stack(stack_t **head, unsigned int line_n)
+{
+	(void)head;
+	(void)line_n;
+	m.stackMode = 0;
+}

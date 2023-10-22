@@ -76,12 +76,12 @@ void f_div(stack_t **head, unsigned int line_n)
 }
 
 /**
- * f_mult - multiples the top two elements of the stack
+ * f_mul - multiples the top two elements of the stack
  * @head: the stack head
  * @line_n: the line number of the stack
  * Return: Return nothing
  */
-void f_mult(stack_t **head, unsigned int line_n)
+void f_mul(stack_t **head, unsigned int line_n)
 {
 	stack_t *h;
 	int temp;
@@ -136,4 +136,45 @@ void f_sub(stack_t **head, unsigned int line_n)
 	temp->next->n = diff;
 	*head = temp->next;
 	free(temp);
+}
+
+/**
+ * f_mod - compute and keep the remainder of the division
+ * @head: the head of stak
+ * @line_n: the line number
+ * Return: Return nothing
+ */
+void f_mod(stack_t **head, unsigned int line_n)
+{
+	stack_t *h;
+	int temp;
+	int length = 0;
+
+	h = *head;
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: Can't mod, stack too short\n", line_n);
+		fclose(m.file);
+		free(m.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	if (h->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_n);
+		fclose(m.file);
+		free(m.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	temp = h->next->n % h->n;
+	h->next->n = temp;
+	*head = h->next;
+	free(h);
 }
