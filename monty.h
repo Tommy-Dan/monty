@@ -21,9 +21,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -36,10 +36,16 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+//*Stack operations*/
+stack_t *create_node(int n);
+void free_nodes(struct_t *h);
+void print_stack(stack_t **head, unsigned int buff);
+void add_to_stack(stack_t **head, int m );
+void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln    );
 
 
 /*file operations*/
